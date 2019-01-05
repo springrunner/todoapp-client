@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <%- include(`_head.html`) -%>
+</head>
+<body>
+  <section class="todoapp">
+    <header class="header">
+      <h1 class="error-title">Oops! Server Error... ;ㅁ;</h1>
+    </header>
+    <section class="error-attributes">
+      <ul>
+          <li>path: <span th:text="${path}">path</span></li>
+          <li>status: <span th:text="${status}">999</span></li>
+          <li>error: <span th:text="${error}">error type</span>
+            <ul th:if="${errors} != null">
+              <li th:each="error : ${errors}"><span th:text="${error}">error description</span></li>
+            </ul>
+          </li>
+          <li>message: <span th:text="${message}">error message</span></li>
+          <li>timestamp: <span th:text="${timestamp}">timestamp</span></li>
+      </ul>
+    </section>  
+  </section>  
+  <%- include(`_footer.html`) -%>
+</body>
+</html>

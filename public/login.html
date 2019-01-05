@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <%- include(`_head.html`) -%>
+  <style type="text/css">
+    * {
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+  <section class="todoapp">
+    <header class="header">
+      <h1>todos</h1>
+    </header>
+    <section class="auth-form">
+      <form method="POST" class="auth-form-body">
+        <div class="form-group">
+          <label for="username">
+              Username or email address
+            </label>
+            <input type="text" name="username" id="username" tabindex="1" autocapitalize="off" autocorrect="off" autofocus="autofocus" required>
+            <div th:if="${bindingResult != null && bindingResult.hasFieldErrors('username')}" class=invalid-feedback>
+              <span th:text="${@messageSource.getMessage(bindingResult.getFieldError('username'), #ctx.locale)}">Please provide a valid username</span>
+            </div>
+        </div>
+        <div class="form-group">
+          <label for="password">
+            Password <!-- <a class="label-link" href="/password_reset">Forgot password?</a> -->
+          </label>
+          <input type="password" name="password" id="password" tabindex="2" minlength="8" required>
+          <div th:if="${bindingResult != null && bindingResult.hasFieldErrors('password')}" class=invalid-feedback>
+            <span th:text="${@messageSource.getMessage(bindingResult.getFieldError('password'), #ctx.locale)}">Please provide a valid password</span>
+          </div>
+        </div>
+        <div class="btn">
+          <button type="submit" tabindex="3" data-disable-with="login…">Login</button>
+        </div>
+      </form>
+      <p th:if="${message == null}" class="auth-text">unregistered users are automatically joined.</p>
+      <p th:if="${message != null}" th:text="${message}" class="auth-text">Server Message</p>
+    </section>
+  </section>
+  <%- include(`_footer.html`) -%>
+</body>
+</html>
