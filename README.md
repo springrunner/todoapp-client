@@ -47,7 +47,7 @@
 * `GET /stream/online-users-counter`: 접속된 사용자 수 변경 이벤트 결과 출력
   - 이벤트 스트림은 [EventSource](https://developer.mozilla.org/en-US/docs/Web/API/EventSource)로 연결
 
-> Web API 응답 상태코드가 40X([클라이언트 오류, Client Error](https://developer.mozilla.org/ko/docs/Web/HTTP/Status#%ED%81%B4%EB%9D%BC%EC%9D%B4%EC%96%B8%ED%8A%B8_%EC%97%90%EB%9F%AC_%EC%9D%91%EB%8B%B5)), 50X([서버 오류, Server error](https://developer.mozilla.org/ko/docs/Web/HTTP/Status#%EC%84%9C%EB%B2%84_%EC%97%90%EB%9F%AC_%EC%9D%91%EB%8B%B5))라면, 응답 바디에 담긴 오류 모델을 출력합니다. 보다 자세한 내용은 [error.html](#error.html) 을 참조바랍니다.
+> Web API 응답 상태코드가 40X([클라이언트 오류, Client Error](https://developer.mozilla.org/ko/docs/Web/HTTP/Status#%ED%81%B4%EB%9D%BC%EC%9D%B4%EC%96%B8%ED%8A%B8_%EC%97%90%EB%9F%AC_%EC%9D%91%EB%8B%B5)), 50X([서버 오류, Server error](https://developer.mozilla.org/ko/docs/Web/HTTP/Status#%EC%84%9C%EB%B2%84_%EC%97%90%EB%9F%AC_%EC%9D%91%EB%8B%B5))라면, 응답 바디에 담긴 오류 모델을 출력합니다. 보다 자세한 내용은 [error.html](#errorhtml) 을 참조바랍니다.
 
 > [Todoapp Web APIs Document](https://app.swaggerhub.com/apis-docs/code-rain/todoapp/1.0.0-snapshot)에서 보다 상세한 WEB API 스펙을 확인할 수 있습니다.
 
