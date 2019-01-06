@@ -88,8 +88,11 @@
 패키지 의존성 관리를 위해 [얀(yarn)](https://yarnpkg.com/en/)을 사용하며, 클라이언트 개발에 사용된 의존성은 `package.json` 명세파일에 선언되어 있습니다.
 
 ### 프로젝트 설정
+> 클라이언트 빌드를 위해서 `yarn`이 설치되어 있어야 합니다. 설치관련 내용은 [Yarn Installation](https://yarnpkg.com/en/docs/install)를 참조바랍니다.
+
 ```
 $ git clone git@github.com:springrunner/todoapp-client.git
+$ cd todoapp-client
 $ yarn install
 ```
 
