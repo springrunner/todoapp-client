@@ -29,7 +29,7 @@
 * HTML 폼으로 사용자이름(username)과 비밀번호(password)를 입력받도록 구성되었습니다.
 * 로그인 버튼을 클릭하면 `POST /login`로 사용자 입력값(username, password)을 전송합니다.
 * 서버에서 제공된 모델(Model)에 다음 키(Key)에 해당하는 값(Value)이 있으면 출력합니다.
-    - `bindingResult`: [Spring BindingResult](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/validation/BindingResult.html) 개체에서 오류 내용을 출력합니다.
+    - `bindingResult`: [Spring BindingResult](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/validation/BindingResult.html) 객체에서 오류 내용을 출력합니다.
     - `message`: 서버에서 전달한 메시지가 있으면 출력합니다.
 
 ### todos.html
@@ -56,7 +56,7 @@
   - `path`: 오류가 발생한 URL 경로(path)
   - `status`: HTTP 상태코드
   - `error`: 오류 발생 이유
-    - `errors`: 스프링 BindingResult 내부에 모든 ObjectErrors 개체 목록
+    - `errors`: 스프링 BindingResult 내부에 모든 ObjectErrors 객체 목록
   - `message`: 오류 내용
   - `timestamp`: 오류 발생시간
 
