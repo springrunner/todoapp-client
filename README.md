@@ -66,7 +66,7 @@
 
 [Thymeleaf](https://www.thymeleaf.org/)와 [Vue.js](https://vuejs.org/)로 개발하고, [Vue CLI 3](https://cli.vuejs.org/)으로 관리하고 있습니다.
 
-### 디렉렉토리 구조
+### 디렉토리 구조
 
 ```
 ├── dist
