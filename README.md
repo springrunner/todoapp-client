@@ -8,8 +8,6 @@
   <img width="640px" src=".README/todoapp_client.png">
 </p>
 
-라이브 데모는 [여기(http://todos-demo.ap-northeast-2.elasticbeanstalk.com/todos)](http://todos-demo.ap-northeast-2.elasticbeanstalk.com/todos)에서 볼 수 있습니다.
-
 ## 클라이언트 기능
 
 클라이언트는 3개 페이지로 구성되어있습니다.
