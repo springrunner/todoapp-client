@@ -35,7 +35,7 @@
 
 할 일(Todo) 관리를 위해 다음 API를 사용합니다.
 
-* `GET /api/todos`: 할 일 목록 조회 또는 CSV 파일 다운로드
+* `GET /api/todos`: 할 일 목록 조회
 * `POST /api/todos`: 새로운 할 일 등록
 * `PUT /api/todos/{todo.id}`: 등록된 할 일 수정 또는 완료
 * `DELETE /api/todos/{todo.id}`: 등록된 할 일 삭제
@@ -48,6 +48,15 @@
 > Web API 응답 상태코드가 40X([클라이언트 오류, Client Error](https://developer.mozilla.org/ko/docs/Web/HTTP/Status#%ED%81%B4%EB%9D%BC%EC%9D%B4%EC%96%B8%ED%8A%B8_%EC%97%90%EB%9F%AC_%EC%9D%91%EB%8B%B5)), 50X([서버 오류, Server error](https://developer.mozilla.org/ko/docs/Web/HTTP/Status#%EC%84%9C%EB%B2%84_%EC%97%90%EB%9F%AC_%EC%9D%91%EB%8B%B5))라면, 응답 바디에 담긴 오류 모델을 출력합니다. 보다 자세한 내용은 [error.html](#errorhtml) 을 참조바랍니다.
 
 > [Todoapp Web APIs Document](https://app.swaggerhub.com/apis-docs/code-rain/todoapp/1.0.0-snapshot)에서 보다 상세한 WEB API 스펙을 확인할 수 있습니다.
+
+할 일(Todo) 목록을 [CSV(Comma-separated values)](https://en.wikipedia.org/wiki/Comma-separated_values)형식으로 내려받을 목적으로 다음과 같이 서버를 호출합니다.
+
+```
+Http URL: /todos
+Http Method: GET
+Http Headers:
+    Accept: text/csv
+```
 
 ### error.html
 * 서버에서 제공하는 모델(Model)에 다음 키(Key)에 해당하는 값(Value)이 있으면 출력합니다. 
