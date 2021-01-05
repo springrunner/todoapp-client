@@ -10,7 +10,7 @@
     "mock": "json-server --watch mock/todo-db.json --middlewares mock/handlers.js"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "todomvc-app-css": "^2.1.2",
     "todomvc-common": "^1.0.5",
     "v-tooltip": "^2.0.0-rc.33",
