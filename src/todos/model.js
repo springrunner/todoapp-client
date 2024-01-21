@@ -34,7 +34,7 @@ class LocalTodos extends Todos {
   }
 
   async toggleAllComplete(completed) {
-    const todos = JSON.parse(localStorage.getItem(this.key)) || [];    
+    const todos = JSON.parse(localStorage.getItem(this.key)) || [];
     for (let todo of todos) {
       todo.completed = completed;
     }

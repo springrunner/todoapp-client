@@ -14,7 +14,7 @@ class TodoView {
     this.downloadTodosButton = document.querySelector('.download-todos');
     
     this.onToggleAll = null;
-    this.onCreateTodo = null;    
+    this.onCreateTodo = null;
     this.onUpdateTodo = null;
     this.onDeleteTodo = null;
     this.onClearCompletedTodos = null;

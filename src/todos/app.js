@@ -4,9 +4,8 @@ import { LocalTodos } from './model.js';
 import { TodoView } from './view.js';
 import TodoController from './controller.js';
 
-const onlineUsersCounter = new LocalOnlineUsersCounter();
-
 const todos = new LocalTodos();
+const onlineUsersCounter = new LocalOnlineUsersCounter();
 const todoView = new TodoView();
 const controler = new TodoController(todos, todoView);
 
