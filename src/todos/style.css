@@ -9,6 +9,16 @@
   border-top: 1px dotted #f1f1f1;
 }
 
+.online-user-count {
+  margin-top: 6px;
+  float: left;
+  text-align: left;
+}
+
+.online-user-count strong {
+  font-weight: 300;
+}
+
 .download-todos:hover {
   text-decoration: underline;
 }
