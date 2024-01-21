@@ -1,6 +1,58 @@
 const ENTER_KEY = 'Enter';
 const ESCAPE_KEY = 'Escape';
 
+class UserSessionView {
+  constructor() {
+    this.userSessionContainer = document.querySelector('.user-session-container');
+    this.loginGuide = document.querySelector('.login-guide-text');
+    this.loginLink = document.querySelector('.login-link');
+    this.userProfile = document.querySelector('.user-profile');
+    this.username = document.querySelector('.user-profile strong');
+    this.userProfilePicture = document.querySelector('.user-profile img');    
+    this.logoutLink = document.querySelector('.logout-link');
+
+    this.onLogin = null;
+    this.onLogout = null;
+
+    this.userSession = { userProfile: null };
+
+    this.attachEventListeners();
+  }
+
+  attachEventListeners() {
+    this.loginLink.addEventListener('click', event => {
+      if (!this.onLogin) {
+        console.warn('Warning: onLogin handler is not defined');
+        return;
+      }
+
+      this.onLogin();
+    });
+
+    this.logoutLink.addEventListener('click', event => {
+      if (!this.onLogout) {
+        console.warn('Warning: onLogout handler is not defined');
+        return;
+      }
+
+      this.onLogout();
+    });
+  }
+
+  onChangedUserSession(userSession) {
+    if (userSession === null || userSession.userProfile === null) {
+      this.userSession = { userProfile: null };
+      this.loginGuide.style.display = 'block';
+      return;
+    }
+
+    this.userSession = userSession;
+    this.userProfile.style.display = 'block';
+    this.username.textContent = this.userSession.userProfile.name;
+    this.userProfilePicture.src = this.userSession.userProfile.profilePictureUrl;
+  }
+}
+
 class TodoView {
   constructor() {
     this.newTodoInput = document.querySelector('.new-todo');
@@ -198,4 +250,4 @@ class TodoView {
   }
 }
 
-export { TodoView };
+export { UserSessionView, TodoView };

@@ -1,7 +1,13 @@
 export default class TodoController {
-  constructor(todos, todoView) {
+  constructor(props, userSession, userSessionView, todos, todoView) {
+    this.props = props;
+    this.userSession = userSession;
+    this.userSessionView = userSessionView;
     this.todos = todos;
     this.todoView = todoView;
+
+    this.userSessionView.onLogin = this.handleLogin.bind(this);
+    this.userSessionView.onLogout = this.handleLogout.bind(this);
 
     this.todoView.onToggleAll = this.handleToggleAll.bind(this);
     this.todoView.onCreateTodo = this.handleCreateTodo.bind(this);
@@ -9,6 +15,16 @@ export default class TodoController {
     this.todoView.onDeleteTodo = this.handleDeleteTodo.bind(this);
     this.todoView.onClearCompletedTodos = this.handleClearCompletedTodos.bind(this);
     this.todoView.onDownloadTodos = this.handleDownloadTodos.bind(this);
+  }
+
+  handleLogin() {
+    document.location.href = this.props.loginUrl;
+  }
+
+  handleLogout() {
+    this.userSession.cleanUp().then(() => {
+      document.location.href = this.props.logoutUrl;
+    });
   }
 
   handleToggleAll(state) {

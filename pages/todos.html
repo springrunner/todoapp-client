@@ -12,6 +12,19 @@
     <section class="todoapp">
         <header class="header">
             <h1>todos</h1>
+            <div class="user-session-container">
+                <p class="login-guide-text" style="display: none;">Please <a href="#/login" class="login-link">login</a> to write todos</p>
+                <div class="user-profile" style="display: none;">
+                    <img src="/profile-picture.png" />
+                    <p>Welcome your visit to <strong>Guest</strong></p>
+                    <div class="settings">
+                        <button type="button">&#9776;</button>
+                        <div class="buttons">                            
+                            <a href="#/logout" class="logout-link">Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <input class="new-todo" placeholder="What needs to be done?" autofocus="">
         </header>
         <main class="main">

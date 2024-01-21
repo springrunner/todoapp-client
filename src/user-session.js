@@ -16,6 +16,7 @@ class UserSession {
       }
     }
   
+    async cleanUp() { /* Do nothing. Override if needed. */ }
     async userProfile() { throw new Error('Method not implemented'); }
   }
   
@@ -31,6 +32,12 @@ class UserSession {
 
       return this.notify();
     }
+
+    async cleanUp() {
+      localStorage.removeItem(this.userProfileKey);
+      
+      return this.notify();
+    }    
   
     async userProfile() {
       return JSON.parse(localStorage.getItem(this.userProfileKey)) || null;
