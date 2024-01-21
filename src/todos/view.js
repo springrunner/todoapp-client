@@ -17,6 +17,7 @@ class TodoView {
     this.onUpdateTodo = null;
     this.onDeleteTodo = null;
     this.onClearCompletedTodos = null;
+    this.onDownloadTodos = null;
 
     this.todos = [];
     this.filter = '';
@@ -135,7 +136,26 @@ class TodoView {
       }
 
       this.onClearCompletedTodos();
-    });    
+    });
+
+    this.downloadTodosButton.addEventListener('click', (event) => {
+      if (!this.onDownloadTodos) {
+        console.warn('Warning: onDownloadTodos handler is not defined');
+        return;
+      }
+
+      this.onDownloadTodos((content, contentType, fileName) => {
+        const blob = new Blob([content], { type: contentType });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.setAttribute('href', url);
+        link.setAttribute('download', fileName);
+        link.style.visibility = 'hidden';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      });
+    });
   }
 
   onChangedTodos(todos) {
