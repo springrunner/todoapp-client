@@ -7,6 +7,7 @@ export default class TodoController {
     this.todoView = todoView;
 
     this.userSessionView.onLogin = this.handleLogin.bind(this);
+    this.userSessionView.onUpdateProfilePicture = this.handleUpdateProfilePicture.bind(this);
     this.userSessionView.onLogout = this.handleLogout.bind(this);
 
     this.todoView.onToggleAll = this.handleToggleAll.bind(this);
@@ -19,6 +20,10 @@ export default class TodoController {
 
   handleLogin() {
     document.location.href = this.props.loginUrl;
+  }
+
+  handleUpdateProfilePicture(profilePicture) {
+    this.userSession.updateProfilePicture(profilePicture);
   }
 
   handleLogout() {

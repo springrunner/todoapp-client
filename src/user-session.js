@@ -18,6 +18,7 @@ class UserSession {
   
     async cleanUp() { /* Do nothing. Override if needed. */ }
     async userProfile() { throw new Error('Method not implemented'); }
+    async updateupdateProfilePicture(profilePicture) { throw new Error('Method not implemented'); }
   }
   
   class LocalUserSession extends UserSession {
@@ -28,7 +29,7 @@ class UserSession {
 
     async set(username, profilePictureUrl) {
       const userProfile = { name: username, profilePictureUrl: profilePictureUrl };      
-      localStorage.setItem(this.userProfileKey, JSON.stringify(userProfile));      
+      localStorage.setItem(this.userProfileKey, JSON.stringify(userProfile));
 
       return this.notify();
     }
@@ -41,6 +42,22 @@ class UserSession {
   
     async userProfile() {
       return JSON.parse(localStorage.getItem(this.userProfileKey)) || null;
+    }
+
+    async updateProfilePicture(profilePicture) {
+      const userProfile = JSON.parse(localStorage.getItem(this.userProfileKey)) || null;
+      if (userProfile === null) {
+        throw new Error('user-profile is null');
+      }
+      
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        userProfile.profilePictureUrl = event.target.result;
+        localStorage.setItem(this.userProfileKey, JSON.stringify(userProfile));
+        this.notify();
+      }
+
+      reader.readAsDataURL(profilePicture);
     }
   }
   
