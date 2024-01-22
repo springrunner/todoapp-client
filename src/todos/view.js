@@ -65,6 +65,10 @@ class UserSessionView {
     });
   }
 
+  onChangedFeatureToggles(featureToggles) {
+    this.userSessionContainer.style.display = featureToggles.auth ? 'block' : 'none';
+  }
+
   onChangedUserSession(userSession) {
     if (userSession === null || userSession.userProfile === null) {
       this.userSession = { userProfile: null };
@@ -87,7 +91,8 @@ class TodoView {
     this.todoList = document.querySelector('.todo-list');  
     this.todoCount = document.querySelector('.todo-count strong');
     this.filters = document.querySelector('.filters');
-    this.clearCompletedButton = document.querySelector('.clear-completed');
+    this.clearCompletedButton = document.querySelector('.clear-completed');    
+    this.onlineUserCountContainer = document.querySelector('.online-user-count');    
     this.onlineUserCount = document.querySelector('.online-user-count strong');
     this.downloadTodosButton = document.querySelector('.download-todos');
     
@@ -236,6 +241,10 @@ class TodoView {
       });
     });
   }
+
+  onChangedFeatureToggles(featureToggles) {
+    this.onlineUserCountContainer.style.display = featureToggles.onlineUsersCounter ? 'block' : 'none';
+  }  
 
   onChangedTodos(todos) {
     this.todos = todos;

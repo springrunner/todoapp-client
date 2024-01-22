@@ -1,3 +1,4 @@
+import { QueryStringFeatureToggles } from '../feature-toggles.js';
 import { LocalUserSession } from '../user-session.js';
 import { LocalOnlineUsersCounter } from '../online-users-counter.js';
 
@@ -7,6 +8,7 @@ import TodoController from './controller.js';
 
 const isDevelopmentMode = import.meta.env.MODE === 'development'
 
+const featureToggles = new QueryStringFeatureToggles();
 const userSession = new LocalUserSession();
 const todos = new LocalTodos();
 const onlineUsersCounter = new LocalOnlineUsersCounter();
@@ -20,11 +22,17 @@ const controler = new TodoController(
   userSession, userSessionView, todos, todoView
 );
 
+featureToggles.subscribe(userSessionView);
+featureToggles.subscribe(todoView);
+featureToggles.notify();
+
 userSession.subscribe(userSessionView);
 userSession.notify();
 
 todos.subscribe(todoView);
 todos.notify();
 
-onlineUsersCounter.subscribe(todoView);
-onlineUsersCounter.notify();
+if (featureToggles.isOnlineUsersCounter()) {
+  onlineUsersCounter.subscribe(todoView);
+  onlineUsersCounter.notify();
+}
